@@ -1,0 +1,24 @@
+carbon: 1
+namespace: carbon-adk.dev.game.unity
+role: pack
+version: "0.1.0"
+requires:
+  harness: ">=1.6"
+  carbon-adk.dev.game: ">=0.3.0"
+submodules:
+  carbon-adk.dev.game: is-a
+sources:
+  carbon-adk.dev.game: "git+https://github.com/mpuls-midknightdev/carbon-adk.dev.game"
+  carbon-adk.dev: "git+https://github.com/mpuls-midknightdev/carbon-adk.dev"
+  carbon-adk: "git+https://github.com/mpuls-midknightdev/carbon-adk"
+  carbon-spine: "git+https://github.com/mpuls-midknightdev/carbon-spine"
+features:
+  unity-laws:
+    default: "on"
+    description: "Unity-specific laws: version control identity, determinism under Unity's callback model, and reproducible builds"
+    skills:
+      - unity-build-pipeline
+      - unity-determinism
+      - unity-version-control-hygiene
+provides:
+  skills: skills

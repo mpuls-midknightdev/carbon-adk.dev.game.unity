@@ -1,0 +1,3 @@
+[submodule ".carbon/spine"]
+	path = .carbon/spine
+	url = https://github.com/mpuls-midknightdev/carbon-spine

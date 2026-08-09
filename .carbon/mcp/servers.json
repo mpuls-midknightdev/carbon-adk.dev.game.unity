@@ -1,0 +1,4 @@
+{
+  "description": "Sample MCP server registration, provisioned by carbon as a pinned, verified `mcp` artifact. Carbon hardens this REGISTRATION file (present + unmodified); the runtime payload an MCP server serves is NOT under carbon's tamper guarantee — see docs/RESEARCH-mcp.md. Pin remote servers by digest where the tool supports it (OWASP).",
+  "mcpServers": {}
+}

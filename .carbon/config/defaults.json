@@ -1,0 +1,12 @@
+{
+  "carbon": 1,
+  "description": "Carbon baseline config, provisioned into .carbon/config and hardened by verify. A project may extend it; carbon keeps the baseline keys present and unmodified.",
+  "defaults": {
+    "tool": "claude",
+    "mode": "hydrate"
+  },
+  "enforce": {
+    "verify_on_checkout": true,
+    "scan_on_commit": true
+  }
+}

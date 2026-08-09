@@ -1,0 +1,37 @@
+# >>> carbon (generated + derived — safe to keep, rebuildable) >>>
+# generated tool dirs (materialized copies — stamped, never hand-edited)
+.claude/
+.cursor/
+.opencode/
+CLAUDE.md
+# generated truth + transient meld state
+**/.carbon/lock.json
+**/.carbon/.resolved-set.json
+**/.carbon/.resolved-set.json.run.*
+**/.carbon/store/
+**/.carbon/.lock
+# derived skill-memory (catalog, BM25 index, knowledge graph, HTML report)
+**/.carbon/catalog.json
+**/.carbon/index/
+**/.carbon/graph/
+**/.carbon/graph.json
+**/.carbon/report.html
+**/.carbon/graph.html
+# canonical layout: all derived machinery (store, lock, index, graph) lives here
+**/.carbon/derived/
+# cortex run state (frozen plans + journals — regenerable, per-run). Receipts
+# are NOT ignored: they are durable proof and belong in the repo.
+**/.carbon/cortex/
+# opt-in local telemetry (never committed)
+**/.carbon/telemetry.jsonl
+# exported libraries (rebuildable via `carbon export`; publish from their own repo)
+**/.carbon/export/
+# signing PRIVATE keys — never commit (the public key + carbon.sig.json ARE committed)
+carbon.key
+**/carbon.key
+# <<< carbon <<<
+
+# inbound dependency checkouts — fetched from `sources:` pins, never committed.
+# Kept OUTSIDE the carbon block above: spine regenerates that block on every install.
+**/.carbon/sources/
+**/.carbon/self/submodules/
