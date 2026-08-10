@@ -1,6 +1,6 @@
 # Start here — `carbon-adk.dev.game.unity`
 
-> **layer:** manual · **updated:** 2026-08-10 · **describes:** spine 1.13.1 · synapse 0.14.1 · carbon-adk 0.22.0 ·
+> **layer:** manual · **updated:** 2026-08-10 · **describes:** spine 1.13.2 · synapse 0.14.2 · carbon-adk 0.23.0 ·
 > **maturity:** provisional (`carbon-adk.dev/proving-ground`)
 > One screen. What this repo is, what it knows, and where to go next.
 
