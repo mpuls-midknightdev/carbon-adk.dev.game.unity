@@ -1,5 +1,9 @@
 # carbon-adk.dev.game.unity
 
+> **New here? → [`docs/manual/START-HERE.md`](docs/manual/START-HERE.md)**
+> — what this repo is, what it inherits, and how to use it, in one screen.
+> It links up to its parent, and the chain ends at the family front door.
+
 Unity-specific laws: the `.meta` file as the identity system, determinism under
 Unity's callback model, and builds that are reproducible off one machine.
 
