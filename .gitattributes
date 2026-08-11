@@ -1,0 +1,12 @@
+# Append-only logs: resolve concurrent appends automatically.
+#
+# `merge=union` is a git built-in — on a three-way merge it keeps BOTH sides'
+# lines instead of raising a conflict. These files are journals: two agents
+# appending different entries is not a disagreement, and asking a human to
+# resolve it every time is a tax on parallel work with no upside.
+#
+# Line ORDER after a union merge follows merge order, so treat these as a set of
+# entries and not a sequence. Anything where order is load-bearing does not
+# belong here.
+DECISIONS.md merge=union
+CHANGELOG.md merge=union
