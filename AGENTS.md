@@ -18,21 +18,30 @@ Work out which of four states this workspace is in. All four checks are
 read-only, offline, and cost nothing:
 
 ```bash
-ls .carbon/lock.json        # has anything ever been composed here?
-ls .carbon/sources/         # are the ancestors fetched?
-ls .claude/skills/          # is the knowledge actually materialized?
+ls .carbon/derived/lock.json .carbon/lock.json 2>/dev/null
+ls .carbon/sources/ 2>/dev/null
+# Resolve the selected tool from lock/manifest authority. With none persisted,
+# CURSOR_AGENT=1 selects cursor. Then inspect .$TOOL/skills/.
 ```
 
 - **Nothing present** — a fresh clone. The knowledge this repo depends on is not
   here yet. **Offer to compose; do not compose unasked.**
-- **All present** — a live workspace. Read `.claude/skills/` and get to work.
+- **All present** — a live workspace. Read the selected native skills directory
+  (`.cursor/skills/`, `.claude/skills/`, or `.opencode/skills/`) and get to work.
 - **Lock but no tool directory** — someone cleaned it. Offer to re-materialize.
 
-Composing runs `carbon-synapse --tool <tool>`. It reaches the **network**, fetches
-every ancestor into `.carbon/sources/`, writes `.carbon/lock.json`, materializes
-skills into the tool's own directory, and installs agent hooks that will run on
-your later file edits. Everything it writes is generated and git-ignored — **no
-tracked file is touched** — so undoing it is deleting a directory.
+Only projects with `.carbon/synapse/` compose themselves; reusable packs are
+composed by consumers and correctly have no local tool directory. After approval,
+a project initializes its pinned toolchain and extracts its native harness:
+`git submodule update --init --recursive`, then
+`node .carbon/synapse/bin/carbon-synapse --root . --tool <resolved-tool>`.
+Composition reaches the **network**, fetches ancestors into `.carbon/sources/`,
+and writes only generated, git-ignored state. The entire `.cursor/` directory is
+local extraction output, never committed bootstrap input.
+If an earlier initialization stopped partway through, the user-level
+SessionStart guard diagnoses it for both Cursor and Claude. With machine-level
+`CARBON_AUTO_MELD=1`, that later session recursively initializes the pins,
+rebuilds the selected native target, verifies it, and asks for a session restart.
 
 ## The law
 
