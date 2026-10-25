@@ -1,7 +1,7 @@
 carbon: 1
 namespace: carbon-adk.dev.game.unity
 role: pack
-version: "0.1.0"
+version: "0.1.1"
 requires:
   harness: ">=1.6"
   carbon-adk.dev.game: ">=0.3.0"

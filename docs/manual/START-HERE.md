@@ -1,6 +1,6 @@
 # Start here — `carbon-adk.dev.game.unity`
 
-> **layer:** manual · **updated:** 2026-08-10 · **describes:** spine 1.24.1 · synapse 0.18.0 · carbon-adk 0.73.0 ·
+> **layer:** manual · **updated:** 2026-08-10 · **describes:** spine 1.26.0 · synapse 0.20.0 · carbon-adk 0.78.0 ·
 > **maturity:** provisional (`carbon-adk.dev/proving-ground`)
 > One screen. What this repo is, what it knows, and where to go next.
 
@@ -15,7 +15,7 @@ Unity-specific law. Engine and platform are separate axes, so nothing here assum
 | | |
 |---|---|
 | **namespace** | `carbon-adk.dev.game.unity` |
-| **version** | 0.1.0 |
+| **version** | 0.1.1 |
 | **inherits from** | `carbon-adk.dev.game` |
 | **full chain above it** | `carbon-adk.dev.game` → `carbon-adk.dev` → `carbon-adk` |
 | **version floor on parent** | `>=0.3.0` |
@@ -37,7 +37,7 @@ than merely forbidden.
 
 ```bash
 # in your carbon.project.yaml
-#   requires:    carbon-adk.dev.game.unity: ">=0.1.0"
+#   requires:    carbon-adk.dev.game.unity: ">=0.1.1"
 #   submodules:  carbon-adk.dev.game.unity: is-a
 #   sources:     carbon-adk.dev.game.unity: "git+https://github.com/mpuls-midknightdev/carbon-adk.dev.game.unity"
 

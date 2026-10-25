@@ -7,7 +7,7 @@ the identity marker, the way a `.uplugin` makes a folder an Unreal plugin.
 | | |
 |---|---|
 | **namespace** | `carbon-adk.dev.game.unity` |
-| **version** | 0.1.0 |
+| **version** | 0.1.1 |
 | **inherits from** | `carbon-adk.dev.game` |
 | **full chain above it** | `carbon-adk.dev.game` → `carbon-adk.dev` → `carbon-adk` |
 <!-- carbon:recap:end -->

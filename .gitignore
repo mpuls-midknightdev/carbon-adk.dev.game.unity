@@ -1,11 +1,26 @@
 # >>> carbon (generated + derived — safe to keep, rebuildable) >>>
-# generated tool dirs (materialized copies — stamped, never hand-edited)
-.claude/
-.cursor/
-.opencode/
-CLAUDE.md
-# generated truth + transient meld state
-**/.carbon/lock.json
+# generated tool dirs (materialized copies — stamped, never hand-edited).
+# Ignored by CONTENTS (`dir/*`), never as a directory (`dir/`): git refuses to
+# descend into an excluded directory, so `.claude/` would make the bootstrap
+# shim below impossible to re-include no matter where the negation sits.
+.claude/*
+.cursor/*
+.opencode/*
+# …except the ONE committed file per platform that lets a fresh clone self-elect.
+# A carbon repo is platform-agnostic, so these folders are otherwise derived;
+# without this the clone auto-loads nothing and an agent works off the rails.
+!.claude/CLAUDE.md
+!.cursor/rules/
+.cursor/rules/*
+!.cursor/rules/carbon-bootstrap.mdc
+# The legacy ROOT memory file: derived, superseded by .claude/CLAUDE.md.
+# Anchored with a leading slash — bare `CLAUDE.md` matches at ANY depth, so it
+# silently re-ignored .claude/CLAUDE.md (last match wins) and the shim vanished.
+/CLAUDE.md
+# Cursor configuration may be merged with machine-local user entries at
+# materialization time, but the entire native target remains local and derived.
+# transient meld state. The LOCK is not here: commit the lock. It records the
+# commit each source resolved to, and `carbon-synapse --frozen` replays it.
 **/.carbon/.resolved-set.json
 **/.carbon/.resolved-set.json.run.*
 **/.carbon/store/
@@ -17,15 +32,39 @@ CLAUDE.md
 **/.carbon/graph.json
 **/.carbon/report.html
 **/.carbon/graph.html
-# canonical layout: all derived machinery (store, lock, index, graph) lives here
-**/.carbon/derived/
+# canonical layout: derived machinery (store, index, graph) lives here, ignored by
+# CONTENTS so the lock can be re-included: commit .carbon/derived/lock.json.
+**/.carbon/derived/*
+!**/.carbon/derived/lock.json
+# generated command shims (resolve their own root, but still machine-derived)
+**/.carbon/bin/
 # cortex run state (frozen plans + journals — regenerable, per-run). Receipts
 # are NOT ignored: they are durable proof and belong in the repo.
 **/.carbon/cortex/
+# the agenthook JOURNAL — operational state, not proof. A per-run receipt is
+# evidence that a procedure ran; this appends on EVERY interposition, so left
+# committed it grows without bound and lands in every diff forever. syslog does
+# not live in git. Narrow by filename so receipts around it stay committed.
+**/.carbon/receipts/carbon-guard.jsonl
 # opt-in local telemetry (never committed)
 **/.carbon/telemetry.jsonl
 # exported libraries (rebuildable via `carbon export`; publish from their own repo)
 **/.carbon/export/
+# staged + built package trees (`carbon package build|export` → packageDir()).
+# Same class as export/: a rebuildable copy of content that already lives here.
+**/.carbon/packages/
+# the governance judge's approval markers. They bind a verdict to the body hash
+# of an UNCOMMITTED change, and once that change is committed there is nothing
+# left to judge — so this is transient local state, not the durable proof a
+# receipt is. Committing it would also let one machine's approval travel.
+**/.carbon/governance/
+# INBOUND DEPENDENCY CHECKOUTS, fetched by the meld from a `sources:` coordinate.
+# Rebuildable from that coordinate and recorded in the lock, so they are derived —
+# but a plain `git clone` leaves a .git inside each one, so without this git stages
+# them as ORPHAN GITLINKS (mode 160000) with no .gitmodules to back them. Committed,
+# that gives a fresh clone empty directories no `submodule update` can ever populate.
+**/.carbon/sources/
+**/.carbon/self/submodules/
 # signing PRIVATE keys — never commit (the public key + carbon.sig.json ARE committed)
 carbon.key
 **/carbon.key
